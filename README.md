@@ -121,6 +121,7 @@ end
 #This is the lambda handler, the code is executed from here. the event: is what we receive from the API Gateway, in this case we're parsing the body that contains the information we're looking for
 def lambda_handler(event:, context:)
         data = JSON.parse(event["body"])
+        #You can include other logic, for example, integrate this to dynamodb or rds to save the user to a database
         #Here we invoke our method to send the mssage and then return the response to the API Gateway
         send_message(data)
         {
